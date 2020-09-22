@@ -2,7 +2,7 @@ const express=require('express')
 const app = express()
 const Slots = require('./api/models/slots')
 const slots = new Slots()
-const port = 8000
+const PORT = process.env.PORT || 8000;
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -18,6 +18,6 @@ app.get('/api/slots', (req, res) => {
     })
 })
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log(`Server listening at http://localhost:${port}/api/slots`)
 })
